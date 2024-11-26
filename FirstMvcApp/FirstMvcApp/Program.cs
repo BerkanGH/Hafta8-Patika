@@ -14,14 +14,17 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+// wwwroot klasöründeki statik dosyaların erişilebilir olmasını sağlıyoruz
 app.UseStaticFiles();
 
 app.UseRouting();
 
 app.UseAuthorization();
 
+//Tarayıcıdan gelen isteklerin doğru controller ve action'a yönlendirilmesi için routing yapılandırmasını yapıyoruz
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+// 4. Uygulamanın çalışmasını sağlıyoruz
 app.Run();
